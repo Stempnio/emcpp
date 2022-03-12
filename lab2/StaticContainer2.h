@@ -6,13 +6,19 @@
 class Container : public Box {
 public:
     static bool verbose;
-    Container(int content):Box(content);                          // implement
-    Container(const Container & container);             // disable
- 	Container & operator=(const Container &container);  // disable
+    Container(int content):Box(content) {};                          // implement
+    Container(const Container & container) = delete;             // disable
+ 	Container & operator=(const Container &container) = delete;  // disable
 
-	Container(Container && container);                  // enable
-  	Container & operator=(Container &&container);       // enable
-    ~Container();                                      // enable
+	Container(Container && container)  noexcept : Box(std::move(container)) {}; // enable
+
+    Container & operator=(Container &&container)  noexcept {
+        if(this != &container) {
+            Box::operator=(std::move(container));
+        }
+        return *this;
+    };       // enable
+    ~Container() {};                                      // enable
 
     friend Container operator+(const Container & p1, const Container & p2);
     friend std::ostream & operator << (std::ostream & out, const Container & p){
@@ -22,6 +28,6 @@ public:
 bool Container::verbose = false;
 
 inline Container operator+(const Container & p1, const Container & p2){
-    Container suma(p1.getContent() + p2.getContent());
-    return suma;
+    Container sum(p1.getContent() + p2.getContent());
+    return sum;
 }
