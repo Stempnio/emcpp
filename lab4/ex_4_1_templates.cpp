@@ -4,6 +4,49 @@
 #include <cmath>
 using namespace std;
 
+template<class T>
+T sqr(T x) {
+    return x*x;
+}
+
+template<>
+string sqr(string x) {
+    return x+x;
+}
+
+template<unsigned N>
+int mod(int a, int b) {
+    return (a+b)%N;
+}
+
+template<>
+int mod<0>(int a, int b) {
+    return a+b;
+}
+
+template<class Container>
+void print(const Container& v) {
+    for(auto x: v) {
+        cout << x << " ";
+    }
+    cout << '\n';
+}
+
+template<class C, class F>
+C applyFun(const C& c, F f) {
+    C result;
+    for(auto x : c) {
+        result.push_back(f(x));
+    }
+    return result;
+}
+
+template<class T, T f(T), unsigned N>
+void process(T array[]) {
+    for(auto i=0; i<N; i++)
+        array[i] = f(array[i]);
+}
+
 int main(){
 
     // function template  sqr<T>
