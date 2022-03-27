@@ -8,7 +8,36 @@ struct Rational{
 		}
 };
 
+template<class T>
+int compare(T a, T b) {
+    if(a<b)
+        return 1;
+    else if(b<a)
+        return -1;
+    else
+        return 0;
+}
 
+template<class T>
+int compare(T* a, T* b) {
+    if(*a<*b)
+        return 1;
+    else if(*b<*a)
+        return -1;
+    else
+        return 0;
+}
+
+template<>
+int compare(const char* a, const char* b) {
+    auto tmp = strcmp(a,b);
+    if(tmp < 0) // a<b
+        return 1;
+    else if(tmp > 0)
+        return -1;
+    else
+        return 0;
+}
 
 int main(){
 	int a = 1, b=-6;
@@ -22,11 +51,11 @@ int main(){
 	cout << compare(&a,&b) << " " << compare(&b,&a) << " " << compare(&a,&a) << endl;
 	cout << compare(&x,&y) << " " << compare(&y,&x) << " " << compare(&x,&x) << endl;
 	cout << compare(&p,&q) << " " << compare(&q,&p) << " " << compare(&p,&r) << endl;
-	
-	const char *s  = "Alpha", *t="Alfa", *t2 = "Alfa"; 
+
+	const char *s  = "Alpha", *t="Alfa", *t2 = "Alfa";
 	cout << "C-strings\n";
-	cout << compare(s,t) << " " << compare(t,s) << " " << compare(t,t) 
+	cout << compare(s,t) << " " << compare(t,s) << " " << compare(t,t)
 	     << " " << compare(t, t2) << " " << compare(t, "Beta") << endl;
-	
+
 	return 0;
 }
