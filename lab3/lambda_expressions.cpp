@@ -23,8 +23,8 @@ int main(){
     /// 1. Sort v with respect to the distance to the center (closest first)
     int center = 50;
     std::sort(v.begin(), v.end(), [&center](int a, int b){
-        auto a1 = std::abs(50-a);
-        auto b1 = std::abs(50-b);
+        auto a1 = std::abs(center-a);
+        auto b1 = std::abs(center-b);
 
         return a1<b1;
     });            // 1
