@@ -13,3 +13,7 @@ add_executable(lab2_ex4 lab2/Ex4_String.cpp)
 add_executable(lab3_ex1 lab3/function_pointers.cpp)
 add_executable(lab3_ex2 lab3/lambda_expressions.cpp)
 add_executable(lab3_ex3 lab3/Printer.cpp)
+
+add_executable(lab4_ex1 lab4/ex_4_1_templates.cpp)
+add_executable(lab4_ex2 lab4/ex_4_2_compare.cpp)
+add_executable(lab4_ex3 lab4/ex_4_3_selectIf.cpp)
