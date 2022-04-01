@@ -17,3 +17,8 @@ add_executable(lab3_ex3 lab3/Printer.cpp)
 add_executable(lab4_ex1 lab4/ex_4_1_templates.cpp)
 add_executable(lab4_ex2 lab4/ex_4_2_compare.cpp)
 add_executable(lab4_ex3 lab4/ex_4_3_selectIf.cpp)
+
+add_executable(lab5_ex1 lab5/ex1_Pair.cpp)
+add_executable(lab5_ex2 lab5/ex2_staticVector.cpp)
+add_executable(lab5_ex3 lab5/ex3_dynamicVector.cpp)
+add_executable(lab5_ex4 lab5/ex4_conversion.cpp)
