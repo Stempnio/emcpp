@@ -1,7 +1,6 @@
-
 #include <iostream>
 #include <iomanip>
-#include "solutions/staticVector.h"
+#include "staticVector.h"
 
 using namespace std;
 #define LOG(x) std::cout << #x << " = " << (x) << std::endl
@@ -13,7 +12,7 @@ int main(){
 	DWector m0{}; // Vector filled with zeroes.
     LOG(m0);
 
-	DWector m1{1.,  2.,  3.,  4.};   // Vector from initialization_list
+    DWector m1{1.,  2.,  3.,  4.};   // Vector from initialization_list
     LOG(m1);
 
 	const DWector m2 = m1;              // copy constructor
@@ -28,7 +27,7 @@ int main(){
     LOG(m3);
 
     Vector<double, 3> m4{5.0, 6.2, 1.34};
-	// auto mm = m3 + m4; // compilation ERROR
+//	 auto mm = m3 + m4; // compilation ERROR
 
 	return 0;
 }
