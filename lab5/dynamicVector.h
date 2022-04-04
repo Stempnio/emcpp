@@ -46,12 +46,28 @@ public:
         this->N = list.size();
     }
 
+    template<typename S, unsigned M>
+    explicit Vector(const Vector<S,M>& v): N(M), coef(std::make_unique<T[]>(M)) {
+        for(auto i=0; i<M; i++)
+            this->coef[i] = v[i];
+    }
+
     T& operator [](unsigned pos) {
         return coef[pos];
     }
 
     const T& operator [](unsigned pos) const {
         return coef[pos];
+    }
+
+    template<unsigned M>
+    Vector<T,M> operator+(Vector<T,M>& v) {
+        auto tmp = Vector<T,M>();
+
+        for(auto i=0; i<M; i++)
+            tmp[i] = coef[i] + v[i];
+
+        return tmp;
     }
 
     Vector operator+(Vector& v) {
@@ -90,6 +106,7 @@ public:
 
     void resize(unsigned newSize) {
         auto newArr = std::make_unique<T[]>(newSize);
+
         if(newSize<N) {
             for(auto i=0; i<newSize; i++)
                 newArr[i] = coef[i];

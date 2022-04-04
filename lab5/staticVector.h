@@ -22,6 +22,18 @@ public:
         std::copy(list.begin(), list.end(), coef);
     }
 
+    template<typename S>
+    explicit Vector(const Vector<S,0>& v) {
+        for(auto i=0; i<N; i++)
+            this->coef[i] = v[i];
+    }
+
+    template<typename S, unsigned M>
+    explicit Vector(const Vector<S,M>& v) {
+        for(auto i=0; i<M; i++)
+            this->coef[i] = v[i];
+    }
+
 
     T& operator [](unsigned pos) {
         return coef[pos];
@@ -29,6 +41,22 @@ public:
 
     const T& operator [](unsigned pos) const {
         return coef[pos];
+    }
+
+    Vector<T,N> operator+(Vector<T,0>& v) {
+        T newArr[N];
+        for(auto i=0; i<N; i++)
+            newArr[i] = coef[i] + v[i];
+
+        return Vector(newArr);
+    }
+
+    Vector<T,N> operator+(Vector<T,0>& v) const {
+        T newArr[N];
+        for(auto i=0; i<N; i++)
+            newArr[i] = coef[i] + v[i];
+
+        return Vector(newArr);
     }
 
     Vector operator+(Vector& v) {
