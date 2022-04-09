@@ -77,9 +77,9 @@ public:
 
     typedef T value_type;
 
-    unsigned size() {
-        return N;
-    }
+//    unsigned size() {
+//        return N;
+//    }
 
     unsigned size() const {
         return N;

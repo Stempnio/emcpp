@@ -9,12 +9,16 @@
 #include "iostream"
 
 class VectorException : public std::runtime_error {
+//    const char * message;
 public:
-    VectorException(): std::runtime_error("incompatible sizes in Vector::operator+") {}
-
-    const char * what() const noexcept override {
-        return "incompatible sizes in Vector::operator+";
+//    VectorException(): std::runtime_error("incompatible sizes in Vector::operator+") {}
+    VectorException(const char * message): std::runtime_error(message) {
+//        this->message = message;
     }
+
+//    const char * what() const noexcept override {
+//        return message;
+//    }
 };
 
 template<typename T>
@@ -62,6 +66,11 @@ public:
 
     template<unsigned M>
     Vector<T,M> operator+(Vector<T,M>& v) {
+
+        if(N != M) {
+            throw VectorException("incompatible sizes in Vector::operator+");
+        }
+
         auto tmp = Vector<T,M>();
 
         for(auto i=0; i<M; i++)
@@ -72,7 +81,7 @@ public:
 
     Vector operator+(Vector& v) {
         if(N != v.N) {
-            throw VectorException();
+            throw VectorException("incompatible sizes in Vector::operator+");
         }
         auto newArr = std::make_unique<T[]>(N);
 
@@ -84,7 +93,7 @@ public:
 
     Vector operator+(Vector v) const {
         if(N != v.N) {
-            throw VectorException();
+            throw VectorException("incompatible sizes in Vector::operator+");
         }
         auto newArr = std::make_unique<T[]>(N);
 
@@ -96,9 +105,9 @@ public:
 
     typedef T value_type;
 
-    unsigned size() {
-        return N;
-    }
+//    unsigned size() {
+//        return N;
+//    }
 
     unsigned size() const {
         return N;
