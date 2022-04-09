@@ -22,3 +22,7 @@ add_executable(lab5_ex1 lab5/ex1_Pair.cpp)
 add_executable(lab5_ex2 lab5/ex2_staticVector.cpp lab5/staticVector.h)
 add_executable(lab5_ex3 lab5/ex3_dynamicVector.cpp lab5/dynamicVector.h)
 add_executable(lab5_ex4 lab5/ex4_conversion.cpp)
+
+add_executable(lab6_ex1 lab6/ex1_variadicFunctions.cpp)
+add_executable(lab6_ex2 lab6/ex2_proxy.cpp)
+add_executable(lab6_ex3 lab6/ex3_Mixins.cpp)
