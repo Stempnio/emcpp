@@ -21,7 +21,7 @@ class Circle{
 public:
     Circle() = default;
     Circle(double r): r(r) {}
-    double area(){ return 3.24*r*r; }
+    double area(){ return 3.14*r*r; }
 };
 class Rectangle{
     double a=0, b=0;
@@ -42,6 +42,12 @@ public:
     }
 };
 
+template<class ...BaseClasses>
+class Mixins : public BaseClasses... {
+public:
+    explicit Mixins(const BaseClasses&... baseClasses) : BaseClasses(baseClasses)... {}
+};
+
 int main(){
 
     using RedCircle = Mixins<Red, Circle>;
@@ -49,8 +55,7 @@ int main(){
     cout << x.color << " area = " << x.area() << endl;
 
     using BlueRectangleWithNotes = Mixins<Blue, Rectangle, Note>;
-    RedCicleWithNotes y (Blue{}, Rectangle{3,4}, Note{"Hey"});
+    BlueRectangleWithNotes y (Blue{}, Rectangle{3,4}, Note{"Hey"});
     y.add("Ho");
     cout << y.color << " area = " << y.area() << endl;
-
 }
