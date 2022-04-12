@@ -1,7 +1,37 @@
 #include <iostream>
 #include <typeinfo>
-#include <boost/type_index.hpp>
+//#include <boost/type_index.hpp>
 using namespace std;
+
+template<typename T>
+void showTypes(T arg) {
+    std::cout << "1 > " << typeid(T).name() << " = " << arg << '\n';
+}
+
+template<typename T, typename ...Args>
+void showTypes(T arg, Args... args) {
+    std::cout << sizeof...(args) + 1 << " > " << typeid(T).name() << " = " << arg << '\n';
+    showTypes(args...);
+}
+
+template<typename F>
+class Proxy {
+        F f;
+public:
+       explicit Proxy(F f) : f(f) {}
+
+       template<typename ...Args>
+       auto operator()(Args&&... args) {
+           std::cout << "\nProxy\n";
+           showTypes(args...);
+           return f(std::forward<Args>(args)...);
+       }
+};
+
+template<typename T>
+Proxy<T> make_proxy(T f) {
+    return Proxy<T>(f);
+}
 
 double f(int x, double y, const int & z, int & w){
     w += 2;
@@ -12,18 +42,18 @@ double f(int x, double y, const int & z, int & w){
 int main(){
     int x = 4;
     const int y = 8;
-    showNames(x, 4.5, y, f);
-    showNames(1, 1.0f, 1.0, 1LL, &x, &y);
+    showTypes(x, 4.5, y, f);
+    showTypes(1, 1.0f, 1.0, 1LL, &x, &y);
 
     auto p = make_proxy(f);
- //   auto p = Proxy(f);    /// with C++ 17
+//    auto p = Proxy(f);    /// with C++ 17
     auto result1 = p(12, 5.1, y, x);
     cout << "result1 = " << result1 << endl;
     auto result2 = p(12, 5.1, y, x);
     cout << "result2 = " << result2 << endl;
     auto result3 = p(3, 3, 5, x);
     cout << "result3 = " << result3 << endl;
-    
+
     auto g = make_proxy([](int &&x, int & y){ y = x; return y; }) ;
  //   auto g = Proxy([](int &&x, int & y){ y = x; return y; }) ; // with C++ 17
     cout << g(5, x) << endl;
