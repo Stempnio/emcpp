@@ -5,7 +5,7 @@ using namespace std;
 
 template<class ...Args>
 auto average(Args... args) {
-    return (args + ...) / sizeof...(args);
+    return (args + ... + 0.0) / sizeof...(args);
 }
 
 template<class Function, class ...Args>
