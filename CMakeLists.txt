@@ -37,3 +37,8 @@ add_executable(lab7_ex1 lab7/ex_7_1_Range.cpp)
 add_executable(lab7_ex2 lab7/ex_7_2_MatrixModifiers.cpp)
 add_executable(lab7_ex3 lab7/ex_7_3_MatrixIterator.cpp)
 add_executable(lab7_ex4 lab7/ex_7_4_Filter.cpp)
+
+add_executable(lab8_ex1 lab8/ex_8_1_type_traits.cpp)
+add_executable(lab8_ex2 lab8/ex_8_2_Vector_traits.cpp)
+add_executable(lab8_ex3 lab8/ex_8_3_Vector_policies.cpp)
+add_executable(lab8_ex4 lab8/ex_8_4_Vector_operators.cpp)
