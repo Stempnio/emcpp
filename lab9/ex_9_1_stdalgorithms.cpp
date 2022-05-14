@@ -10,6 +10,7 @@ void print(const Container & c){
     //1.  Print elements of the container separated by ", "
     //    using std::copy and std::ostream_iterator
     // <<>> (1 line)
+    std::copy(c.begin(), c.end(), std::ostream_iterator<int>(std::cout, ", "));
     std::cout << std::endl;
 }
 
@@ -20,6 +21,12 @@ void print(const Container & c){
 void toLowerAlpha(std::string & s1) {
     //2. Implement using stl algorithms only
     //   Hint: use remove_if, transform, erase
+    std::transform(s1.begin(), s1.end(), s1.begin(),
+                   [](char c) { return std::tolower(c); });
+    s1.erase(std::remove_if(s1.begin(),
+                            s1.end(),
+                            [](unsigned char c) { return !std::isalnum(c); }),
+             s1.end());
 }
 /**
   Checks if the first word is an anagram of the second word.
@@ -37,7 +44,15 @@ bool isAnagram(std::string word1, std::string word2){
 //3. Implement isAnagram function using stl algorithms only
 //   Hint: use toLowerAlpha, sort, equal
 // <<>> (several lines)
-    return false;
+    toLowerAlpha(word1);
+    toLowerAlpha(word2);
+
+    if(word1 == word2)
+        return false;
+
+    std::sort(word1.begin(), word1.end());
+    std::sort(word2.begin(), word2.end());
+    return std::equal(word1.begin(), word1.end(), word2.begin());
 }
 void isAnagramTest(const std::string & s1, const std::string & s2, bool expected){
     std::cout << "isAnagram(\"" << s1 << "\", \""<< s2 << "\") = ";
@@ -49,23 +64,29 @@ int main(){
 
     constexpr int N = 10;
     std::vector<int> v(N);
-
     //4. Fill vector v with consecutive numbers starting with -5. (Hint: use std::iota)
     // <<>> (1 line)
+    std::iota(v.begin(), v.end(), -5);
     print(v);
 
     std::vector<int> odd;
     //5. Copy to odd all odd numbers from v (Hint: use copy_if and back_inserter)
     // <<>> (1 line)
+    std::copy_if(v.begin(), v.end(), std::back_inserter(odd),[](int i) { return i%2 != 0;});
     print(odd);
 
     //6. Each number x in v replace with x*x-1 (Hint std::transform)
     // <<>> (1 line)
+    std::transform(v.begin(), v.end(), v.begin(), [](int x){return x*x-1;});
     print(v);
 
     std::vector<int> intersect;
     //7. Sort v and compute intersection of vectors odd and v (treated as sets)
     // <<>> (2 lines)
+    std::sort(v.begin(), v.end());
+    std::set_intersection(v.begin(), v.end(),
+                          odd.begin(), odd.end(),
+                          std::back_inserter(intersect));
     print(intersect);
 
     isAnagramTest("male", "lame", true);
