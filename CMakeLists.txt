@@ -42,3 +42,7 @@ add_executable(lab8_ex1 lab8/ex_8_1_type_traits.cpp)
 add_executable(lab8_ex2 lab8/ex_8_2_Vector_traits.cpp)
 add_executable(lab8_ex3 lab8/ex_8_3_Vector_policies.cpp)
 add_executable(lab8_ex4 lab8/ex_8_4_Vector_operators.cpp)
+
+add_executable(lab9_ex1 lab9/ex_9_1_stdalgorithms.cpp)
+add_executable(lab9_ex2 lab9/ex_9_2_words.cpp)
+add_executable(lab9_ex3 lab9/ex_9_3_Trie.cpp)
