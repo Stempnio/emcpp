@@ -1,0 +1,70 @@
+<!DOCTYPE html> 
+<html lang="pl">
+<head>
+  <title>Tomasz Kapela Homepage</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" type="text/css" href="main.css" />
+  <style>
+  table,
+      td,
+      th {
+        padding: 5px;
+        border: 2px solid black;
+        border-radius: 5px;
+      /*  background-color: #e5e5e5;*/
+        text-align: center;
+      }
+</style>
+</head>
+<body>
+<div id="center">
+	
+	
+<div id="myHead">
+	<div class="head1"> 
+		<a class="head1" href="http://ww2.ii.uj.edu.pl/%7Ekapela/">Tomasz Kapela Homepage </a> 
+    </div>
+	<div class="head2"> 
+		<a class="head2" href="http://www.uj.edu.pl/">Jagiellonian University</a> <br />
+	</div>
+</div>
+
+<div id="myPhoto"> <img src="http://ww2.ii.uj.edu.pl/%7Ekapela/img/kapela.jpg" style="float: left;" alt="Tomasz Kapela" /> </div>
+
+<div id="menu"> 
+	<a href="index.php"> HOME </a>
+	<a href="cv.php"> CV </a> 
+	<a href="papers/papers.html"> PAPERS </a> 
+	<a href="student/index.html"> TEACHING</a> 
+	<a href="nbody.php"> N-BODY </a>  
+	<!-- a href="photo/index.html">PHOTOS</a> -->
+	<a href="links.php"> LINKS </a> 
+</div>
+
+
+<div id="dataPanel">
+
+	<p>
+	<ul>
+	  <li><a href="https://baca.ii.uj.edu.pl">BaCa</a></li>
+	  <li><a href="emcpp/">Effective &amp; modern C++</a></li>
+	  <li><a href="https://www.solarsystemscope.com/">
+                 Solar System
+          </a></li>
+	  <li><a href="http://www.usosweb.uj.edu.pl/">USOS UJ </a></li>
+          <li><a href="mailto:admin@helpdesk.eu">Admin</a></li>
+	</ul>
+
+	</p>
+<table>
+<tr><th>user</th><th>mail</th></tr>
+<tr><td><a href="https://en.wikipedia.org/wiki/Donald_Duck">Donald Duck</a></td><td>donald@duck.co</td></tr>
+<tr><td>False email </td><td> to nie jest@email </td></tr>
+<tr><td>XXXX</td><td>XX.xx-xx.XX@XXX.xx.pl </td></tr> 
+</table>
+</div>
+
+</div>
+
+</body>
+</html>

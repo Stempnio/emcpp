@@ -1,18 +1,38 @@
 #include <iostream>
 #include <chrono>
 #include <string>
+#include <utility>
+
+using namespace std::chrono;
+
+template<typename S>
+auto calculateDuration = [](auto s, auto e) {
+    duration<double> diff = e - s;
+    return duration_cast<S>(diff).count();
+};
+
+//template<typename S>
+//auto calculateDuration(time_point<steady_clock> s, time_point<steady_clock> e) {
+//    duration<double> diff = e - s;
+//    return duration_cast<S>(diff).count();
+//}
 
 class Timer{
    std::string name;
+   time_point<steady_clock> start;
+   time_point<steady_clock> end;
 
 public:
-   Timer(const std::string & name) : name(name){
+   explicit Timer(std::string&& name) : name(std::move(name)){
+      start = steady_clock::now();
    }
    ~Timer(){
-       std::cout << name << " : " << 0 << " ms. " << std::endl;
+       end = steady_clock::now();
+       std::cout << name << " : " << calculateDuration<milliseconds>(start, end) << " ms. " << std::endl;
    }
+
    auto durationInNanoseconds(){
-       return 0;
+       return calculateDuration<nanoseconds>(start, steady_clock::now());
    }
 };
 

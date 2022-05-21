@@ -49,6 +49,7 @@ add_executable(lab9_ex3 lab9/ex_9_3_Trie.cpp)
 
 add_executable(lab10_ex1 lab10/ex_10_1_literals.cpp)
 add_executable(lab10_ex2 lab10/ex_10_2_chrono.cpp)
+add_executable(lab10_ex3 lab10/ex_10_3_regex.cpp)
 add_executable(lab10_features_literals lab10/features/literals.cpp)
 add_executable(lab10_features_main lab10/features/main.cpp)
 add_executable(lab10_features_regex lab10/features/regex.cpp)
