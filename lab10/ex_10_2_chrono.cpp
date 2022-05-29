@@ -20,15 +20,15 @@ auto calculateDuration = [](auto s, auto e) {
 class Timer{
    std::string name;
    time_point<steady_clock> start;
-   time_point<steady_clock> end;
+//   time_point<steady_clock> end;
 
 public:
    explicit Timer(std::string&& name) : name(std::move(name)){
       start = steady_clock::now();
    }
    ~Timer(){
-       end = steady_clock::now();
-       std::cout << name << " : " << calculateDuration<milliseconds>(start, end) << " ms. " << std::endl;
+//       end = steady_clock::now();
+       std::cout << name << " : " << calculateDuration<milliseconds>(start, steady_clock::now()) << " ms. " << std::endl;
    }
 
    auto durationInNanoseconds(){

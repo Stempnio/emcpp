@@ -53,3 +53,7 @@ add_executable(lab10_ex3 lab10/ex_10_3_regex.cpp)
 add_executable(lab10_features_literals lab10/features/literals.cpp)
 add_executable(lab10_features_main lab10/features/main.cpp)
 add_executable(lab10_features_regex lab10/features/regex.cpp)
+
+add_executable(lab11_ex1 lab11/ex11_2_enable_if.cpp)
+add_executable(lab11_ex2 lab11/ex11_1_has_size.cpp)
+add_executable(lab11_ex3 lab11/ex11_3_tag_dispatching.cpp)
