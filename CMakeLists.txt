@@ -57,3 +57,7 @@ add_executable(lab10_features_regex lab10/features/regex.cpp)
 add_executable(lab11_ex1 lab11/ex11_2_enable_if.cpp)
 add_executable(lab11_ex2 lab11/ex11_1_has_size.cpp)
 add_executable(lab11_ex3 lab11/ex11_3_tag_dispatching.cpp)
+
+add_executable(lab12_ex1 lab12/random.cpp)
+add_executable(lab12_ex2 lab12/ex_11_2_Mandelbrot.cpp)
+add_executable(lab12_ex3 lab12/ex_12_3_promise_future.cpp)
