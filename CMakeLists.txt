@@ -61,3 +61,7 @@ add_executable(lab11_ex3 lab11/ex11_3_tag_dispatching.cpp)
 add_executable(lab12_ex1 lab12/random.cpp)
 add_executable(lab12_ex2 lab12/ex_11_2_Mandelbrot.cpp)
 add_executable(lab12_ex3 lab12/ex_12_3_promise_future.cpp)
+
+add_executable(lab13_ex1 lab13/ex1_RecurrentClasses.cpp)
+add_executable(lab13_ex2 lab13/ex2_Expressions.cpp)
+add_executable(lab13_ex3 lab13/ex3_IntegerList.cpp)

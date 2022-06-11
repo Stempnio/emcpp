@@ -62,7 +62,7 @@ class Matrix{
         using PointerType = ValueType*;
         using ReferenceType = ValueType&;
 
-        iterator(PointerType ptr) : ptr(ptr) {}
+        explicit iterator(PointerType ptr) : ptr(ptr) {}
 
         iterator& operator++() {
             ptr++;
@@ -115,11 +115,11 @@ class Matrix{
             return iterator;
         }
 
-        const PointerType operator->() const {
+        PointerType operator->() const {
             return ptr;
         }
 
-        const ReferenceType operator*() const {
+        ReferenceType operator*() const {
             return *ptr;
         }
 

@@ -21,15 +21,17 @@ double calcMedian(Container set, std::forward_iterator_tag) {
     auto limit = !evenSize ? set.size()/2 : (set.size()/2)-1;
     auto it = set.begin();
 
-    for(auto i = 0; i < limit; i++)
-        it++;
+    std::advance(it, limit);
+//    for(auto i = 0; i < limit; i++)
+//        it++;
 
     return !evenSize ? *it : ( *it + *(++it) ) / 2.;
 }
 
 template<typename Container>
 double median(Container set) {
-    return calcMedian(set,typename std::iterator_traits<decltype(set.begin())>::iterator_category());
+//    return calcMedian(set,typename std::iterator_traits<decltype(set.begin())>::iterator_category());
+    return calcMedian(set,typename std::iterator_traits<typename Container::iterator>::iterator_category());
 }
 
 int main() {

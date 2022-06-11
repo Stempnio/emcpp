@@ -18,7 +18,8 @@ class Range {
     template<typename Range>
     class RangeIterator {
     public:
-        using ValueType = typename Range::ValueType;
+        using ValueType = T;
+//        using ValueType = typename Range::ValueType;
         using PointerType = ValueType*;
         using ReferenceType = ValueType&;
 
@@ -56,7 +57,7 @@ class Range {
     };
 public:
 
-    using ValueType = T;
+//    using ValueType = T;
     using Iterator = RangeIterator<Range<T>>;
 
     Range(T start, T stop, T step=1){
